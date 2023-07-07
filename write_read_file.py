@@ -3,6 +3,7 @@ import csv
 from datetime import datetime
 from pathlib import Path
 import re
+from fake_content import user_1
 
 
 class Field:
@@ -134,7 +135,21 @@ def write_AB(path, adr_book):    #write AddressBook in file
                 writer.writerow(rec.__dict__)
 
 
+def main():
+    path_file = Path(__file__).parent / 'AddressBook.csv'
+    user_name = Name(user_1["name"])
+    user_phone_1 = Phone(user_1["phone"])
+    user_phone_2 = Phone("236598545")
+    user_email = Email(user_1["email"])
+    user_birthday = Birthday(user_1["birthday"])
+    user_address = user_1["address"]
+    
+    record = Record(user_name, user_phone_1, user_birthday, user_email)
+    ab = AddressBook()
+    ab.add_record(record)
+    print(ab)
+    write_AB(path_file, ab)
+    
 
 if __name__ == "__main__":
-    path_file = Path(__file__).parent / 'AddressBook.csv'
-    
+    main()
