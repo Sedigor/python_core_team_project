@@ -3,7 +3,7 @@ import csv
 from datetime import datetime
 from pathlib import Path
 import re
-from fake_content import user_1
+from fake_content_2 import user_1
 
 
 class Field:
@@ -70,7 +70,7 @@ class Address(Field):
 
 
 class Record:
-    def __init__(self, name: Name, phone=None, birthday=None, email=None, address=None): 
+    def __init__(self, name, phone=None, birthday=None, email=None, address=None): 
         self.name = name
         self.phones = []
         self.birthday = birthday
